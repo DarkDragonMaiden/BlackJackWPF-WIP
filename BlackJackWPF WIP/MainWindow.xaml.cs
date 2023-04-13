@@ -24,5 +24,15 @@ namespace BlackJackWPF_WIP
         {
             InitializeComponent();
         }
+
+        private void Hit_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Stand_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
