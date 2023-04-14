@@ -21,7 +21,7 @@
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFEFD2A8"/>
-                    <GradientStop Color="#FFE0B370" Offset="1"/>
+                    <GradientStop Color="#FFE8B76E" Offset="1"/>
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
@@ -48,6 +48,7 @@
                     <GradientStop Color="#FFDADADA" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
+            <Border BorderBrush="Black" BorderThickness="1"/>
         </Grid>
         <Grid x:Name="PlayerCard2" Margin="399,242,287,21" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
             <Grid.RenderTransform>
@@ -64,38 +65,7 @@
                     <GradientStop Color="#FFDADADA" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
-        </Grid>
-        <Grid x:Name="DealerCard2" Margin="302,-28,386,304" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
-            <Grid.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="0.229"/>
-                    <RotateTransform Angle="175"/>
-                    <TranslateTransform X="96.16" Y="0.419"/>
-                </TransformGroup>
-            </Grid.RenderTransform>
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="White"/>
-                    <GradientStop Color="#FFDADADA" Offset="1"/>
-                </LinearGradientBrush>
-            </Grid.Background>
-        </Grid>
-        <Grid x:Name="DealerCard1" Margin="381,-30,307,305" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
-            <Grid.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="-0.334"/>
-                    <RotateTransform Angle="-175"/>
-                    <TranslateTransform X="-93.838" Y="-0.408"/>
-                </TransformGroup>
-            </Grid.RenderTransform>
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="White"/>
-                    <GradientStop Color="#FFDADADA" Offset="1"/>
-                </LinearGradientBrush>
-            </Grid.Background>
+            <Border BorderBrush="Black" BorderThickness="1"/>
         </Grid>
         <Grid Margin="205,37,79,226" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Grid.RenderTransform>
@@ -113,7 +83,7 @@
                 </LinearGradientBrush>
             </Grid.Background>
         </Grid>
-        <Grid x:Name="StackCardMid" Margin="200,34,84,229" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
+        <Grid Margin="200,34,84,229" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -129,7 +99,7 @@
                 </LinearGradientBrush>
             </Grid.Background>
         </Grid>
-        <Grid Margin="195,28,89,235" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
+        <Grid x:Name="Deck" Margin="195,28,89,235" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -144,6 +114,41 @@
                     <GradientStop Color="#FFDADADA" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
+            <Border BorderBrush="Black" BorderThickness="1"/>
+        </Grid>
+        <Grid x:Name="DealerCard1" Margin="285,-20,399,283" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform AngleY="0.246"/>
+                    <RotateTransform Angle="5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White"/>
+                    <GradientStop Color="#FFDADADA" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Border BorderBrush="Black" BorderThickness="1"/>
+        </Grid>
+        <Grid x:Name="DealerCard2" Margin="4,-20,282,283" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform AngleY="-0.296"/>
+                    <RotateTransform Angle="-5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White"/>
+                    <GradientStop Color="#FFDADADA" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Border BorderBrush="Black" BorderThickness="1"/>
         </Grid>
 
     </Grid>
