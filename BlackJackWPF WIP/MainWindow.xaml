@@ -65,7 +65,6 @@
                     <GradientStop Color="#FFDADADA" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            <Border BorderBrush="Black" BorderThickness="1"/>
         </Grid>
         <Grid Margin="205,37,79,226" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Grid.RenderTransform>
@@ -114,7 +113,6 @@
                     <GradientStop Color="#FFDADADA" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            <Border BorderBrush="Black" BorderThickness="1"/>
         </Grid>
         <Grid x:Name="DealerCard1" Margin="285,-20,399,283" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
             <Grid.RenderTransform>
@@ -131,7 +129,6 @@
                     <GradientStop Color="#FFDADADA" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            <Border BorderBrush="Black" BorderThickness="1"/>
         </Grid>
         <Grid x:Name="DealerCard2" Margin="4,-20,282,283" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Grid.RenderTransform>
@@ -148,7 +145,6 @@
                     <GradientStop Color="#FFDADADA" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            <Border BorderBrush="Black" BorderThickness="1"/>
         </Grid>
 
     </Grid>
