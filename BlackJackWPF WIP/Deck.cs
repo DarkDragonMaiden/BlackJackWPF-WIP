@@ -9,7 +9,7 @@ namespace BlackJackWPF_WIP
     internal class Deck
     {
         private List<Card> cards;
-
+        // Suit, Ranks, and Values of a card
         public Deck()
         {
             string[] suits = { "Hearts", "Diamonds", "Clubs", "Spades" };
@@ -26,7 +26,7 @@ namespace BlackJackWPF_WIP
                 }
             }
         }
-
+        // Randomizes the next card
         public void Shuffle()
         {
             Random random = new Random();
@@ -39,7 +39,7 @@ namespace BlackJackWPF_WIP
                 cards[j] = temp;
             }
         }
-
+        // Add a card to your hand
         public Card DrawCard()
         {
             Card card = cards[0];

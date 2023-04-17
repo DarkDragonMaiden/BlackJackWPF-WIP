@@ -8,15 +8,16 @@ namespace BlackJackWPF_WIP
 {
     internal class Dealer
     {
+        // The cards in the hand and the total value of the cards.
         public List<Card> Hand { get; set; }
         public int TotalValue { get; set; }
-
+        // Dealer hands and the total value of it
         public Dealer()
         {
             Hand = new List<Card>();
             TotalValue = 0;
         }
-
+        // Adds a card to the dealer and if they have an ace, or more, calculates whether it is over 21 or not and sets it to 1 or 11
         public void AddCard(Card card)
         {
             Hand.Add(card);
@@ -34,13 +35,13 @@ namespace BlackJackWPF_WIP
                 }
             }
         }
-
+        // Removes Dealer hands and set to 0
         public void ClearHand()
         {
             Hand.Clear();
             TotalValue = 0;
         }
-
+        // Display the dealers hands and makers one of the 
         public void DisplayHand(bool showFirstCard)
         {
             Console.Write("Dealer's hand: ");

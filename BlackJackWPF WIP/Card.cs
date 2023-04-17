@@ -8,6 +8,7 @@ namespace BlackJackWPF_WIP
 {
     internal class Card
     {
+        // Sets the cards Suit, Rank, and Value
         public string Suit { get; set; }
         public string Rank { get; set; }
         public int Value { get; set; }
