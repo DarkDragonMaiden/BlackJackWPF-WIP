@@ -41,7 +41,7 @@ namespace BlackJackWPF_WIP
             Hand.Clear();
             TotalValue = 0;
         }
-        // Display the dealers hands and makers one of the 
+        // The dealers hand and hides the cards and total value of the cards
         public void DisplayHand(bool showFirstCard)
         {
             Console.Write("Dealer's hand: ");
@@ -60,7 +60,7 @@ namespace BlackJackWPF_WIP
             }
             Console.WriteLine();
         }
-
+        // Calculates whether the dealer should hit or stand if value is less than 17
         public bool ShouldHit()
         {
             if (TotalValue < 17)
