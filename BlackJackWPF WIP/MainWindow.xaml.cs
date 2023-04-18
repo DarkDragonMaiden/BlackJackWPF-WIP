@@ -43,6 +43,14 @@ namespace BlackJackWPF_WIP
         Dealer dealer = new Dealer();
         private void Hit_Button_Click(object sender, RoutedEventArgs e)
         {
+            Rectangle newRect = new Rectangle();
+            newRect.Width = 130;
+            newRect.Height = 192;
+            newRect.Fill = Brushes.White;
+            Canvas.SetLeft(newRect, 100);
+            Canvas.SetTop(newRect, 100);
+            myCanvas.Children.Add(newRect);
+
             player.AddCard(deck.DrawCard());
             player.DisplayHand();
 
