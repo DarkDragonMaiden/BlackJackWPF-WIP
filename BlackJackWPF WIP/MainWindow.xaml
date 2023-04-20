@@ -18,7 +18,7 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Canvas x:Name="myCanvas" Grid.ColumnSpan="2">
-            <Button x:Name="Hit_Button" Content="Hit" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="80" FontSize="18" FontFamily="Georgia" Click="Hit_Button_Click" Canvas.Left="295" Canvas.Top="181">
+            <Button x:Name="HitButton" Content="Hit" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="80" FontSize="18" FontFamily="Georgia" Click="HitButton_Click" Canvas.Left="295" Canvas.Top="181">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFEFD2A8"/>
@@ -26,7 +26,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="Stand_Button" Content="Stand" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="80" FontSize="18" FontFamily="Georgia" Click="Stand_Button_Click" Grid.Column="1" Canvas.Left="420" Canvas.Top="181">
+            <Button x:Name="StandButton" Content="Stand" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="80" FontSize="18" FontFamily="Georgia" Click="StandButton_Click" Grid.Column="1" Canvas.Left="420" Canvas.Top="181">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFEFD2A8"/>
@@ -34,6 +34,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
+            <Button x:Name="StartButton" Content="Button" Grid.ColumnSpan="2" Click="StartButton_Click" Height="29" Canvas.Left="365" Canvas.Top="183" Width="70"/>
 
         </Canvas>
 
@@ -60,38 +61,6 @@
                     <SkewTransform/>
                     <RotateTransform Angle="-5"/>
                     <TranslateTransform X="1"/>
-                </TransformGroup>
-            </Rectangle.RenderTransform>
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFD0D0D0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="192" Margin="260,228,0,0" Stroke="Black" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-5"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Rectangle.RenderTransform>
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFD0D0D0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="192" Margin="10,228,0,0" Stroke="Black" VerticalAlignment="Top" Width="130" Grid.Column="1" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="5"/>
-                    <TranslateTransform/>
                 </TransformGroup>
             </Rectangle.RenderTransform>
             <Rectangle.Fill>

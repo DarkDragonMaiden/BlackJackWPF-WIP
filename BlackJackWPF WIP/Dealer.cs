@@ -47,14 +47,14 @@ namespace BlackJackWPF_WIP
             Console.Write("Dealer's hand: ");
             if (showFirstCard)
             {
-                Console.Write(Hand[0].ToString() + " ");
+                Console.Write(Hand[0] + " ");
                 Console.Write("???");
             }
             else
             {
                 foreach (Card card in Hand)
                 {
-                    Console.Write(card.ToString() + " ");
+                    Console.Write(card + " ");
                 }
                 Console.WriteLine("(Total value: " + TotalValue + ")");
             }
@@ -63,22 +63,11 @@ namespace BlackJackWPF_WIP
         // Calculates whether the dealer should hit or stand if value is less than 17
         public bool ShouldHit()
         {
-            if (TotalValue < 17)
-            {
+            if (TotalValue > 17)
                 return true;
-            }
             else if (TotalValue == 17)
-            {
-                foreach (Card card in Hand)
-                {
-                    if (card.Rank == "Ace" && card.Value == 11)
-                    {
-                        return true;
-                    }
-                }
-            }
+                return Hand.Any(h =>  h.Rank == "Ace" && h.Value == 11);
             return false;
         }
-
     }
 }

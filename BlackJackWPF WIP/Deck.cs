@@ -30,14 +30,7 @@ namespace BlackJackWPF_WIP
         public void Shuffle()
         {
             Random random = new Random();
-
-            for (int i = cards.Count - 1; i > 0; i--)
-            {
-                int j = random.Next(i + 1);
-                Card temp = cards[i];
-                cards[i] = cards[j];
-                cards[j] = temp;
-            }
+            cards = (List<Card>)cards.OrderBy(x => random.Next());
         }
         // Add a card to your hand
         public Card DrawCard()

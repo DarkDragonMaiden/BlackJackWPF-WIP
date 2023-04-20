@@ -25,28 +25,26 @@ namespace BlackJackWPF_WIP
         {
             InitializeComponent();
 
-            player.ClearHand();
-            dealer.ClearHand();
-
-            player.AddCard(deck.DrawCard());
-            dealer.AddCard(deck.DrawCard());
-            player.AddCard(deck.DrawCard());
-            dealer.AddCard(deck.DrawCard());
-
-            player.DisplayHand();
-            dealer.DisplayHand(true);
+            Rectangle playerCard = new Rectangle();
+            playerCard.Width = 130;
+            playerCard.Height = 192;
+            playerCard.Fill = Brushes.White;
+            playerCard.Stroke = Brushes.Black;
+            Canvas.SetLeft(playerCard, 50);
 
         }
         Deck deck = new Deck();
 
         Player player = new Player("Player");
         Dealer dealer = new Dealer();
-        private void Hit_Button_Click(object sender, RoutedEventArgs e)
+
+        private void HitButton_Click(object sender, RoutedEventArgs e)
         {
             Rectangle newRect = new Rectangle();
             newRect.Width = 130;
             newRect.Height = 192;
             newRect.Fill = Brushes.White;
+            newRect.Stroke = Brushes.Black;
             Canvas.SetLeft(newRect, 100);
             Canvas.SetTop(newRect, 100);
             myCanvas.Children.Add(newRect);
@@ -56,9 +54,24 @@ namespace BlackJackWPF_WIP
 
         }
 
-        private void Stand_Button_Click(object sender, RoutedEventArgs e)
+        private void StandButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void StartButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (Rectangle rect in myCanvas.Children)
+            {
+                Rectangle playerCard = new Rectangle();
+                playerCard.Width = 130;
+                playerCard.Height = 192;
+                playerCard.Fill = Brushes.White;
+                playerCard.Stroke = Brushes.Black;
+                Canvas.SetLeft(playerCard, 250);
+                Canvas.SetTop(playerCard, 220);
+                myCanvas.Children.Add(playerCard);
+            }
         }
     }
 }
