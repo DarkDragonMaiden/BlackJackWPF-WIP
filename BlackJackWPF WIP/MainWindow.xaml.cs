@@ -61,8 +61,6 @@ namespace BlackJackWPF_WIP
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            foreach (Rectangle rect in myCanvas.Children)
-            {
                 Rectangle playerCard = new Rectangle();
                 playerCard.Width = 130;
                 playerCard.Height = 192;
@@ -71,7 +69,6 @@ namespace BlackJackWPF_WIP
                 Canvas.SetLeft(playerCard, 250);
                 Canvas.SetTop(playerCard, 220);
                 myCanvas.Children.Add(playerCard);
-            }
         }
     }
 }

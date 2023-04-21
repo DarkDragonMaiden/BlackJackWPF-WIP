@@ -37,39 +37,6 @@
             <Button x:Name="StartButton" Content="Button" Grid.ColumnSpan="2" Click="StartButton_Click" Height="29" Canvas.Left="365" Canvas.Top="183" Width="70"/>
 
         </Canvas>
-
-        <Rectangle HorizontalAlignment="Left" Height="192" Margin="255,-30,0,0" Stroke="Black" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="5"/>
-                    <TranslateTransform X="1"/>
-                </TransformGroup>
-            </Rectangle.RenderTransform>
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFD0D0D0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="192" Margin="5,-30,0,0" Stroke="Black" VerticalAlignment="Top" Width="130" Grid.Column="1" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-5"/>
-                    <TranslateTransform X="1"/>
-                </TransformGroup>
-            </Rectangle.RenderTransform>
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFD0D0D0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
         <Rectangle HorizontalAlignment="Left" Height="192" Margin="220,45,0,0" Stroke="Black" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Rectangle.RenderTransform>
                 <TransformGroup>
