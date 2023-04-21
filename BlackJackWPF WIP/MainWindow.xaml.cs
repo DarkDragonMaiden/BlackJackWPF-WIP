@@ -61,6 +61,7 @@ namespace BlackJackWPF_WIP
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
+            for (int card = 1; card <= 2; card++) { }
                 Rectangle playerCard = new Rectangle();
                 playerCard.Width = 130;
                 playerCard.Height = 192;

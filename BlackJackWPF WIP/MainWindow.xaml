@@ -34,7 +34,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="StartButton" Content="Button" Grid.ColumnSpan="2" Click="StartButton_Click" Height="29" Canvas.Left="365" Canvas.Top="183" Width="70"/>
+            <Button x:Name="StartButton" Content="Start" Grid.ColumnSpan="2" Click="StartButton_Click" Height="29" Canvas.Left="365" Canvas.Top="183" Width="70"/>
 
         </Canvas>
         <Rectangle HorizontalAlignment="Left" Height="192" Margin="220,45,0,0" Stroke="Black" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
