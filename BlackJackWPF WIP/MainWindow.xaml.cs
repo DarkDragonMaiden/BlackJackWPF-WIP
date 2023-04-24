@@ -25,54 +25,39 @@ namespace BlackJackWPF_WIP
         {
             InitializeComponent();
 
-            Rectangle playerCard = new Rectangle();
-            playerCard.Width = 130;
-            playerCard.Height = 192;
-            playerCard.Fill = Brushes.White;
-            playerCard.Stroke = Brushes.Black;
-            Canvas.SetLeft(playerCard, 50);
-
         }
         Deck deck = new Deck();
+        private void StartButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Shuffles the first and second card to begin the game
+            deck.Shuffle();
+            Card c1 = deck.DrawCard(); card1Suit.Text = c1.Suit; card1Rank.Text = c1.Rank;
+            deck.Shuffle();
+            Card c2 = deck.DrawCard(); card1Suit1.Text = c2.Suit; card1Rank1.Text = c2.Rank;
 
-        Player player = new Player("Player");
-        Dealer dealer = new Dealer();
+        }
 
         private void HitButton_Click(object sender, RoutedEventArgs e)
         {
-            Rectangle newRect = new Rectangle();
-            newRect.Width = 130;
-            newRect.Height = 192;
-            newRect.Fill = Brushes.White;
-            newRect.Stroke = Brushes.Black;
-            Canvas.SetLeft(newRect, 100);
-            Canvas.SetTop(newRect, 100);
-            myCanvas.Children.Add(newRect);
-
-            player.AddCard(deck.DrawCard());
-            player.DisplayHand();
+            // Shuffles the next 3 cards only does the 3rd one atm
+            deck.Shuffle();
+            Card c3 = deck.DrawCard(); card1Suit2.Text = c3.Suit; card1Rank2.Text = c3.Rank;
 
         }
 
         private void StandButton_Click(object sender, RoutedEventArgs e)
         {
+            // Filler
+            MessageBox.Show("You win!");
 
-        }
-
-        private void StartButton_Click(object sender, RoutedEventArgs e)
-        {
-            for (int card = 1; card <= 2; card++) { }
-                Rectangle playerCard = new Rectangle();
-                playerCard.Width = 130;
-                playerCard.Height = 192;
-                playerCard.Fill = Brushes.White;
-                playerCard.Stroke = Brushes.Black;
-                Canvas.SetLeft(playerCard, 250);
-                Canvas.SetTop(playerCard, 220);
-                myCanvas.Children.Add(playerCard);
+            // Empties the text blocks
+            card1Suit.Text = string.Empty; card1Rank.Text = string.Empty;
+            card1Suit1.Text = string.Empty; card1Rank1.Text = string.Empty;
+            card1Suit2.Text = string.Empty; card1Rank2.Text = string.Empty;
         }
     }
 }
+#region random code
 /*
  *         static void Main(string[] args)
         {
@@ -162,4 +147,59 @@ namespace BlackJackWPF_WIP
         }
 
 */
+#endregion
+/* Rectangle
+*Rectangle newRect = new Rectangle();
+newRect.Width = 130;
+newRect.Height = 192;
+newRect.Fill = Brushes.White;
+newRect.Stroke = Brushes.Black;
+Canvas.SetLeft(newRect, 100);
+Canvas.SetTop(newRect, 100);
+myCanvas.Children.Add(newRect);
+*/
+/* Canvas
+        // Create the application's main window
+        mainWindow = new Window();
 
+        // Create a canvas sized to fill the window
+        Canvas myCanvas = new Canvas();
+        myCanvas.Background = Brushes.LightSteelBlue;
+
+        // Add a "Hello World!" text element to the Canvas
+        TextBlock txt1 = new TextBlock();
+        txt1.FontSize = 14;
+        txt1.Text = "Hello World!";
+        Canvas.SetTop(txt1, 100);
+        Canvas.SetLeft(txt1, 10);
+        myCanvas.Children.Add(txt1);
+
+        // Add a second text element to show how absolute positioning works in a Canvas
+        TextBlock txt2 = new TextBlock();
+        txt2.FontSize = 22;
+        txt2.Text = "Isn't absolute positioning handy?";
+        Canvas.SetTop(txt2, 200);
+        Canvas.SetLeft(txt2, 75);
+        myCanvas.Children.Add(txt2);
+        mainWindow.Content = myCanvas;
+        mainWindow.Title = "Canvas Sample";
+        mainWindow.Show();
+*/
+/* TextBlock
+ * TextBlock textBlock1 = new TextBlock();
+TextBlock textBlock2 = new TextBlock();
+
+textBlock1.TextWrapping = textBlock2.TextWrapping = TextWrapping.Wrap;
+textBlock2.Background = Brushes.AntiqueWhite;
+textBlock2.TextAlignment = TextAlignment.Center;
+
+textBlock1.Inlines.Add(new Bold(new Run("TextBlock")));
+textBlock1.Inlines.Add(new Run(" is designed to be "));
+textBlock1.Inlines.Add(new Italic(new Run("lightweight")));
+textBlock1.Inlines.Add(new Run(", and is geared specifically at integrating "));
+textBlock1.Inlines.Add(new Italic(new Run("small")));
+textBlock1.Inlines.Add(new Run(" portions of flow content into a UI."));
+
+textBlock2.Text =
+    "By default, a TextBlock provides no UI beyond simply displaying its contents.";
+ */
