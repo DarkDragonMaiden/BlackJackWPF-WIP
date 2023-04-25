@@ -113,14 +113,6 @@ namespace BlackJackWPF_WIP
         {
             // Filler
             MessageBox.Show("You win!");
-
-            // Empties the text blocks
-            myCanvas.Children.OfType<TextBlock>().FirstOrDefault();
-            if (myCanvas != null)
-            {
-                myCanvas.Children.Remove(myCanvas);
-            }
-
         }
     }
 }
