@@ -25,11 +25,24 @@ namespace BlackJackWPF_WIP
         {
             InitializeComponent();
 
+            List<int> values = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+            Random random = new Random();
+            int n = values.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = random.Next(n + 1);
+                int temp = values[k];
+                values[k] = values[n];
+                values[n] = temp;
+            }
+
         }
         Deck deck = new Deck();
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
+            
             #region Card Creater Card 1
             // Creates a new card from a rectangle
             Rectangle card1 = new Rectangle();
@@ -80,6 +93,7 @@ namespace BlackJackWPF_WIP
             Card c1 = deck.DrawCard(); card1Suit.Text = c1.Suit; card1Rank.Text = c1.Rank;
             Card c2 = deck.DrawCard(); card2Suit.Text = c2.Suit; card2Rank.Text = c2.Rank;
 
+            
         }
 
         private void HitButton_Click(object sender, RoutedEventArgs e)
@@ -112,7 +126,7 @@ namespace BlackJackWPF_WIP
         private void StandButton_Click(object sender, RoutedEventArgs e)
         {
             // Filler
-            MessageBox.Show("You win!");
+            MessageBox.Show("");
         }
     }
 }
