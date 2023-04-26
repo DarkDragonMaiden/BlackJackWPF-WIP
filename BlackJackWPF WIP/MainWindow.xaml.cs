@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,24 +26,12 @@ namespace BlackJackWPF_WIP
         {
             InitializeComponent();
 
-            List<int> values = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
-            Random random = new Random();
-            int n = values.Count;
-            while (n > 1)
-            {
-                n--;
-                int k = random.Next(n + 1);
-                int temp = values[k];
-                values[k] = values[n];
-                values[n] = temp;
-            }
-
         }
         Deck deck = new Deck();
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            /*
             #region Card Creater Card 1
             // Creates a new card from a rectangle
             Rectangle card1 = new Rectangle();
@@ -87,17 +76,18 @@ namespace BlackJackWPF_WIP
             Canvas.SetLeft(card2Rank, 225); Canvas.SetTop(card2Rank, 250);
             myCanvas.Children.Add(card2Rank);
             #endregion
-
+            */
             // Shuffles the first and second card to begin the game
             deck.Shuffle();
-            Card c1 = deck.DrawCard(); card1Suit.Text = c1.Suit; card1Rank.Text = c1.Rank;
-            Card c2 = deck.DrawCard(); card2Suit.Text = c2.Suit; card2Rank.Text = c2.Rank;
+            Card c1 = deck.DrawCard(); Pcard1Suit.Text = c1.Suit; Pcard1Rank.Text = c1.Rank; pCard1.Tag = c1.Value;
+            Card c2 = deck.DrawCard(); Pcard2Suit.Text = c2.Suit; Pcard2Rank.Text = c2.Rank; pCard2.Tag = c2.Value;
 
             
         }
 
         private void HitButton_Click(object sender, RoutedEventArgs e)
         {
+            /*
             #region Card Creater Card 3
             Rectangle card3 = new Rectangle();
             card3.Width = 120; card3.Height = 175; card3.Fill = Brushes.White; card3.Stroke = Brushes.Black;
@@ -117,17 +107,35 @@ namespace BlackJackWPF_WIP
             Canvas.SetLeft(card3Rank, 350); Canvas.SetTop(card3Rank, 250);
             myCanvas.Children.Add(card3Rank);
             #endregion
+            */
             // Shuffles the next 3 cards only does the 3rd one atm
             deck.Shuffle();
-            Card c3 = deck.DrawCard(); card3Suit.Text = c3.Suit; card3Rank.Text = c3.Rank;
+            Card c3 = deck.DrawCard(); Pcard3Suit.Text = c3.Suit; Pcard3Rank.Text = c3.Rank; pCard3.Tag = c3.Value;
 
         }
 
         private void StandButton_Click(object sender, RoutedEventArgs e)
         {
-            // Filler
-            MessageBox.Show("");
+            // Adds up all the cards
+            int v = (int)pCard1.Tag + (int)pCard2.Tag + (int)pCard3.Tag;
+
+            if (v > 21)
+            {
+                if (Pcard1Rank.Text == "Ace" && (int)pCard1.Tag == 11) 
+                { pCard1.Tag = 1; v -= 10; }
+                    MessageBox.Show($"{v}"); 
+            }
+            else if (v < 21)
+            { MessageBox.Show("You lost"); }
+            else
+            { MessageBox.Show("You win!"); }
+            Pcard1Rank.Text = string.Empty; Pcard1Suit.Text = string.Empty; pCard1.Tag = string.Empty;
+            Pcard2Rank.Text = string.Empty; Pcard2Suit.Text = string.Empty; pCard2.Tag = string.Empty;
+            Pcard3Rank.Text = string.Empty; Pcard3Suit.Text = string.Empty; pCard3.Tag = string.Empty;
+
+
         }
+
     }
 }
 #region random code
