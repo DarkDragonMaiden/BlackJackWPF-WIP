@@ -26,9 +26,9 @@ namespace BlackJackWPF_WIP
         {
             InitializeComponent();
 
+            ResetGame();
         }
         Deck deck = new Deck();
-
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             /*
@@ -79,9 +79,12 @@ namespace BlackJackWPF_WIP
             */
             // Shuffles the first and second card to begin the game
             deck.Shuffle();
-            Card c1 = deck.DrawCard(); Pcard1Suit.Text = c1.Suit; Pcard1Rank.Text = c1.Rank; pCard1.Tag = c1.Value;
-            Card c2 = deck.DrawCard(); Pcard2Suit.Text = c2.Suit; Pcard2Rank.Text = c2.Rank; pCard2.Tag = c2.Value;
-
+            Card c = deck.DrawCard();
+            //
+            pCardSuit1.Text = c.Suit; pCardRank1.Text = c.Rank; pCard1.Tag = c.Value;
+            pCardSuit2.Text = c.Suit; pCardRank2.Text = c.Rank; pCard2.Tag = c.Value;
+            pCard1.Visibility = Visibility.Visible; pCard2.Visibility = Visibility.Visible;
+            StartButton.Content = "New Game";
             
         }
 
@@ -108,34 +111,73 @@ namespace BlackJackWPF_WIP
             myCanvas.Children.Add(card3Rank);
             #endregion
             */
-            // Shuffles the next 3 cards only does the 3rd one atm
+            // Shuffles the next 3 cards
             deck.Shuffle();
-            Card c3 = deck.DrawCard(); Pcard3Suit.Text = c3.Suit; Pcard3Rank.Text = c3.Rank; pCard3.Tag = c3.Value;
+            Card c = deck.DrawCard();
+            // determines whether a card is hidden and if it is make it visible and after every click makes the next card visible
+            if (pCard3.Visibility == Visibility.Hidden)
+            {
+                pCardSuit3.Text = c.Suit; pCardRank3.Text = c.Rank; pCard3.Tag = c.Value;
+                pCard3.Visibility = Visibility.Visible;
+            }
+            else if (pCard4.Visibility == Visibility.Hidden)
+            {
+                pCardSuit4.Text = c.Suit; pCardRank4.Text = c.Rank; pCard4.Tag = c.Value;
+                pCard4.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                pCardSuit5.Text = c.Suit; pCardRank5.Text = c.Rank; pCard5.Tag = c.Value;
+                pCard5.Visibility = Visibility.Visible;
+            }
 
         }
 
         private void StandButton_Click(object sender, RoutedEventArgs e)
         {
             // Adds up all the cards
-            int v = (int)pCard1.Tag + (int)pCard2.Tag + (int)pCard3.Tag;
+            int v = (int)pCard1.Tag + (int)pCard2.Tag + (int)pCard3.Tag + (int)pCard4.Tag + (int)pCard5.Tag;
 
-            if (v > 21)
+            if (v > 21) 
             {
-                if (Pcard1Rank.Text == "Ace" && (int)pCard1.Tag == 11) 
-                { pCard1.Tag = 1; v -= 10; }
-                    MessageBox.Show($"{v}"); 
+                MessageBox.Show("You busted!");
             }
             else if (v < 21)
-            { MessageBox.Show("You lost"); }
+            {
+                MessageBox.Show("You lost!");
+            }
             else
-            { MessageBox.Show("You win!"); }
-            Pcard1Rank.Text = string.Empty; Pcard1Suit.Text = string.Empty; pCard1.Tag = string.Empty;
-            Pcard2Rank.Text = string.Empty; Pcard2Suit.Text = string.Empty; pCard2.Tag = string.Empty;
-            Pcard3Rank.Text = string.Empty; Pcard3Suit.Text = string.Empty; pCard3.Tag = string.Empty;
+            {
+                MessageBox.Show("You win!");
+            }
 
-
+            ResetGame();
         }
+        private void ResetGame()
+        {
+            List<Rectangle> pCards = new List<Rectangle>()
+            {
+                pCard1, pCard2, pCard3, pCard4, pCard5
+            };
 
+            List<TextBlock> pSuitsAndRanks = new List<TextBlock>()
+            {
+                pCardRank1, pCardRank2, pCardRank3, pCardRank4, pCardRank5, pCardSuit1, pCardSuit2, pCardSuit3, pCardRank4, pCardRank5
+            };
+            foreach (Rectangle card in pCards)
+            {
+                card.Tag = 0;
+                card.Visibility = Visibility.Hidden;
+            }
+            foreach (TextBlock suit in pSuitsAndRanks)
+            {
+                suit.Text = string.Empty;
+            }
+            foreach (TextBlock rank in pSuitsAndRanks)
+            {
+                rank.Text = string.Empty;
+            }
+        }
     }
 }
 #region random code

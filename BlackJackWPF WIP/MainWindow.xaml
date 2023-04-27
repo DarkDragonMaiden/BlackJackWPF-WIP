@@ -17,8 +17,35 @@
                 <GradientStop Color="#FF15351E" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
+        <Canvas x:Name="myCanvas_Copy" Grid.ColumnSpan="2" Margin="0,-191,0,191">
+            <Canvas Height="185" Width="120" Canvas.Left="70" Canvas.Top="224" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Rectangle x:Name="pCard6" Height="175" Stroke="Black" Width="120" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="10" Visibility="Hidden"/>
+                <TextBlock x:Name="Pcard1Rank1" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="32" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Width="80"/>
+                <TextBlock x:Name="Pcard1Suit1" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="85" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="90" FontSize="20"><Run/><LineBreak/><Run/></TextBlock>
+            </Canvas>
+            <Canvas Height="185" Width="120" Canvas.Left="205" Canvas.Top="224" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Rectangle x:Name="pCard7" Height="175" Stroke="Black" Width="120" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="10" Visibility="Hidden"/>
+                <TextBlock x:Name="Pcard2Rank1" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="32" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Width="80"/>
+                <TextBlock x:Name="Pcard2Suit1" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="85" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="90" FontSize="20"><Run/><LineBreak/><Run/></TextBlock>
+            </Canvas>
+            <Canvas Height="185" Width="120" Canvas.Left="340" Canvas.Top="224" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Rectangle x:Name="pCard8" Height="175" Stroke="Black" Width="120" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="10" Visibility="Hidden"/>
+                <TextBlock x:Name="Pcard3Rank1" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="32" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Width="80"/>
+                <TextBlock x:Name="Pcard3Suit1" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="85" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="90" FontSize="20"><Run/><LineBreak/><Run/></TextBlock>
+            </Canvas>
+            <Canvas Height="185" Width="120" Canvas.Left="475" Canvas.Top="224" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Rectangle x:Name="pCard9" Height="175" Stroke="Black" Width="120" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="10" Visibility="Hidden"/>
+                <TextBlock x:Name="Pcard4Rank1" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="32" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Width="80"/>
+                <TextBlock x:Name="Pcard4Suit1" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="85" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="90" FontSize="20"><Run/><LineBreak/><Run/></TextBlock>
+            </Canvas>
+            <Canvas Height="185" Width="120" Canvas.Left="610" Canvas.Top="224" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Rectangle x:Name="pCard10" Height="175" Stroke="Black" Width="120" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="10" Visibility="Hidden"/>
+                <TextBlock x:Name="Pcard5Rank1" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="32" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Width="80"/>
+                <TextBlock x:Name="Pcard5Suit1" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="85" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="90" FontSize="20"><Run/><LineBreak/><Run/></TextBlock>
+            </Canvas>
+        </Canvas>
         <Canvas x:Name="myCanvas" Grid.ColumnSpan="2" Margin="0,164,0,-164">
-            <Button x:Name="HitButton" Content="Hit" HorizontalAlignment="Center" VerticalAlignment="Top" Height="30" Width="80" FontSize="18" FontFamily="Georgia" Click="HitButton_Click" Canvas.Left="295" Canvas.Top="194">
+            <Button x:Name="HitButton" Content="Hit" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="80" FontSize="18" FontFamily="Georgia" Click="HitButton_Click" Canvas.Left="225" Canvas.Top="140">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFEFD2A8"/>
@@ -26,7 +53,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="StandButton" Content="Stand" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="80" FontSize="18" FontFamily="Georgia" Click="StandButton_Click" Grid.Column="1" Canvas.Left="425" Canvas.Top="194">
+            <Button x:Name="StandButton" Content="Stand" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="80" FontSize="18" FontFamily="Georgia" Click="StandButton_Click" Grid.Column="1" Canvas.Left="495" Canvas.Top="140">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFEFD2A8"/>
@@ -35,31 +62,31 @@
                 </Button.Background>
             </Button>
             <Canvas Height="185" Width="120" Canvas.Left="70" Canvas.Top="224" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <Rectangle x:Name="pCard1" Height="175" Stroke="Black" Width="120" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="10"/>
-                <TextBlock x:Name="Pcard1Rank" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="32" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Width="80"/>
-                <TextBlock x:Name="Pcard1Suit" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="85" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="90" FontSize="20"><Run/><LineBreak/><Run/></TextBlock>
+                <Rectangle x:Name="pCard1" Height="175" Stroke="Black" Width="120" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="10" Visibility="Hidden"/>
+                <TextBlock x:Name="pCardRank1" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="32" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Width="80"/>
+                <TextBlock x:Name="pCardSuit1" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="85" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="90" FontSize="20"><Run/><LineBreak/><Run/></TextBlock>
             </Canvas>
             <Canvas Height="185" Width="120" Canvas.Left="205" Canvas.Top="224" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <Rectangle x:Name="pCard2" Height="175" Stroke="Black" Width="120" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="10"/>
-                <TextBlock x:Name="Pcard2Rank" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="32" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Width="80"/>
-                <TextBlock x:Name="Pcard2Suit" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="85" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="90" FontSize="20"><Run/><LineBreak/><Run/></TextBlock>
+                <Rectangle x:Name="pCard2" Height="175" Stroke="Black" Width="120" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="10" Visibility="Hidden"/>
+                <TextBlock x:Name="pCardRank2" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="32" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Width="80"/>
+                <TextBlock x:Name="pCardSuit2" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="85" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="90" FontSize="20"><Run/><LineBreak/><Run/></TextBlock>
             </Canvas>
             <Canvas Height="185" Width="120" Canvas.Left="340" Canvas.Top="224" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <Rectangle x:Name="pCard3" Height="175" Stroke="Black" Width="120" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="10"/>
-                <TextBlock x:Name="Pcard3Rank" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="32" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Width="80"/>
-                <TextBlock x:Name="Pcard3Suit" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="85" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="90" FontSize="20"><Run/><LineBreak/><Run/></TextBlock>
+                <Rectangle x:Name="pCard3" Height="175" Stroke="Black" Width="120" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="10" Visibility="Hidden"/>
+                <TextBlock x:Name="pCardRank3" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="32" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Width="80"/>
+                <TextBlock x:Name="pCardSuit3" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="85" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="90" FontSize="20"><Run/><LineBreak/><Run/></TextBlock>
             </Canvas>
             <Canvas Height="185" Width="120" Canvas.Left="475" Canvas.Top="224" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <Rectangle Height="175" Stroke="Black" Width="120" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="10"/>
-                <TextBlock x:Name="card4Rank" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="32" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Width="80"/>
-                <TextBlock x:Name="card4Suit" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="85" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="90" FontSize="20"><Run/><LineBreak/><Run/></TextBlock>
+                <Rectangle x:Name="pCard4" Height="175" Stroke="Black" Width="120" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="10" Visibility="Hidden"/>
+                <TextBlock x:Name="pCardRank4" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="32" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Width="80"/>
+                <TextBlock x:Name="pCardSuit4" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="85" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="90" FontSize="20"><Run/><LineBreak/><Run/></TextBlock>
             </Canvas>
             <Canvas Height="185" Width="120" Canvas.Left="610" Canvas.Top="224" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <Rectangle Height="175" Stroke="Black" Width="120" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="10"/>
-                <TextBlock x:Name="card5Rank" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="32" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Width="80"/>
-                <TextBlock x:Name="card5Suit" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="85" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="90" FontSize="20"><Run/><LineBreak/><Run/></TextBlock>
+                <Rectangle x:Name="pCard5" Height="175" Stroke="Black" Width="120" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="10" Visibility="Hidden"/>
+                <TextBlock x:Name="pCardRank5" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="32" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Width="80"/>
+                <TextBlock x:Name="pCardSuit5" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="85" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="90" FontSize="20"><Run/><LineBreak/><Run/></TextBlock>
             </Canvas>
-            <Button x:Name="StartButton" Content="Start" Height="30" Width="80" FontSize="18" FontFamily="Georgia" Canvas.Top="159" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="360" Click="StartButton_Click">
+            <Button x:Name="StartButton" Content="Start" Height="30" Width="110" FontSize="18" FontFamily="Georgia" Canvas.Top="140" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="345" Click="StartButton_Click">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFEFD2A8"/>
