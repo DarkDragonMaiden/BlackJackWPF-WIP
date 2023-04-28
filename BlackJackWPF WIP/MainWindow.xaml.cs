@@ -11,6 +11,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -31,6 +32,14 @@ namespace BlackJackWPF_WIP
         Deck deck = new Deck();
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
+            //List<TextBlock> Card1 = new List<TextBlock>()
+            //{
+            //    pCard1, pCard2, dCard1, dCard2
+            //};
+            //foreach(TextBlock c in Card1)
+            //{
+              //  c.Tag = 
+            //}
             /*
             #region Card Creater Card 1
             // Creates a new card from a rectangle
@@ -78,14 +87,26 @@ namespace BlackJackWPF_WIP
             #endregion
             */
             // Shuffles the first and second card to begin the game
+            Card c1 = deck.DrawCard();
+            Card c2 = deck.DrawCard();
             deck.Shuffle();
-            Card c = deck.DrawCard();
-            //
-            pCardSuit1.Text = c.Suit; pCardRank1.Text = c.Rank; pCard1.Tag = c.Value;
-            pCardSuit2.Text = c.Suit; pCardRank2.Text = c.Rank; pCard2.Tag = c.Value;
-            pCard1.Visibility = Visibility.Visible; pCard2.Visibility = Visibility.Visible;
+            // shows the first two cards.
+            pCardSuit1.Text = c1.Suit; pCardRank1.Text = c1.Rank; pCard1.Tag = c1.Value;
+            pCardSuit2.Text = c1.Suit; pCardRank2.Text = c1.Rank; pCard2.Tag = c1.Value;
+            dCardSuit1.Text = c2.Suit; dCardRank1.Text = c2.Rank; dCard1.Tag = c2.Value;
+            dCardSuit2.Text = c2.Suit; dCardRank2.Text = c2.Rank; dCard2.Tag = c2.Value;
+            pCard1.Visibility = Visibility.Visible; pCard2.Visibility = Visibility.Visible; dCard1.Visibility = Visibility.Visible; dCard2.Visibility = Visibility.Visible;
             StartButton.Content = "New Game";
-            
+            int cV1 = c1.Value;
+            int cV2 = c2.Value;
+            if (cV1 == 21)
+            {
+                MessageBox.Show("BlackJack! You win!");
+            }
+            else if (cV2 == 21)
+            {
+                MessageBox.Show("Dealer BlackJacked! Dealer Wins!");
+            }
         }
 
         private void HitButton_Click(object sender, RoutedEventArgs e)
@@ -136,15 +157,20 @@ namespace BlackJackWPF_WIP
         private void StandButton_Click(object sender, RoutedEventArgs e)
         {
             // Adds up all the cards
-            int v = (int)pCard1.Tag + (int)pCard2.Tag + (int)pCard3.Tag + (int)pCard4.Tag + (int)pCard5.Tag;
+            int pV = (int)pCard1.Tag + (int)pCard2.Tag + (int)pCard3.Tag + (int)pCard4.Tag + (int)pCard5.Tag;
+            int cV = (int)dCard1.Tag + (int)dCard2.Tag + (int)dCard3.Tag + (int)dCard4.Tag + (int)dCard5.Tag;
 
-            if (v > 21) 
+            if (pV > 21)
             {
                 MessageBox.Show("You busted!");
             }
-            else if (v < 21)
+            else if (pV < cV && pV < 21)
             {
                 MessageBox.Show("You lost!");
+            }
+            else if (cV > 21)
+            {
+                MessageBox.Show("Dealer busted! You win!");
             }
             else
             {
@@ -155,27 +181,27 @@ namespace BlackJackWPF_WIP
         }
         private void ResetGame()
         {
-            List<Rectangle> pCards = new List<Rectangle>()
+            // puts all the rectangles in a list same with the textblocks to suits and ranks
+            List<Rectangle> Cards = new List<Rectangle>()
             {
-                pCard1, pCard2, pCard3, pCard4, pCard5
+                pCard1, pCard2, pCard3, pCard4, pCard5,
+                dCard1, dCard2, dCard3, dCard4, dCard5
             };
-
-            List<TextBlock> pSuitsAndRanks = new List<TextBlock>()
+            List<TextBlock> SuitsAndRanks = new List<TextBlock>()
             {
-                pCardRank1, pCardRank2, pCardRank3, pCardRank4, pCardRank5, pCardSuit1, pCardSuit2, pCardSuit3, pCardRank4, pCardRank5
+                pCardRank1, pCardRank2, pCardRank3, pCardRank4, pCardRank5, pCardSuit1, pCardSuit2, pCardSuit3, pCardSuit4, pCardSuit5, 
+                dCardRank1, dCardRank2, dCardRank3, dCardRank4, dCardRank5, dCardSuit1, dCardSuit2, dCardSuit3, dCardSuit4, dCardSuit5
             };
-            foreach (Rectangle card in pCards)
+            // sets all of the values(tag) to 0 and hides it.
+            foreach (Rectangle card in Cards)
             {
                 card.Tag = 0;
                 card.Visibility = Visibility.Hidden;
             }
-            foreach (TextBlock suit in pSuitsAndRanks)
+            // empties out the strings of the suits and ranks in the textblocks
+            foreach (TextBlock suitAndRank in SuitsAndRanks)
             {
-                suit.Text = string.Empty;
-            }
-            foreach (TextBlock rank in pSuitsAndRanks)
-            {
-                rank.Text = string.Empty;
+                suitAndRank.Text = string.Empty;
             }
         }
     }
