@@ -15,10 +15,17 @@ namespace BlackJackWPF_WIP
             InitializeComponent();
 
             ResetGame();
+            HitButton.IsEnabled = false;
+            StandButton.IsEnabled = false;
         }
         Deck deck = new Deck();
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
+            if (StartButton.IsEnabled == true)
+            {
+                HitButton.IsEnabled = true;
+                StandButton.IsEnabled = true;
+            }
             /*
             #region Card Creater Card 1
             // Creates a new card from a rectangle
@@ -68,25 +75,31 @@ namespace BlackJackWPF_WIP
             // Shuffles the first and second card to begin the game
             deck.Shuffle();
             // shows the first two cards.
-            Card playerC1 = deck.DrawCard(); pCardSuit1.Text = playerC1.Suit; pCardRank1.Text = playerC1.Rank; pCard1.Tag = playerC1.Value;
-            Card playerC2 = deck.DrawCard(); pCardSuit2.Text = playerC2.Suit; pCardRank2.Text = playerC2.Rank; pCard2.Tag = playerC2.Value;
-            Card dealerC1 = deck.DrawCard(); dCardSuit1.Text = dealerC1.Suit; dCardRank1.Text = dealerC1.Rank; dCard1.Tag = dealerC1.Value;
-            Card dealerC2 = deck.DrawCard(); dCardSuit2.Text = dealerC2.Suit; dCardRank2.Text = dealerC2.Rank; dCard2.Tag = dealerC2.Value;
+            Card playerC1 = deck.DrawCard(); 
+            pCardSuit1.Text = playerC1.Suit; pCardRank1.Text = playerC1.Rank; pCard1.Tag = playerC1.Value;
+            Card playerC2 = deck.DrawCard(); 
+            pCardSuit2.Text = playerC2.Suit; pCardRank2.Text = playerC2.Rank; pCard2.Tag = playerC2.Value;
+            Card dealerC1 = deck.DrawCard(); 
+            dCardSuit1.Text = dealerC1.Suit; dCardRank1.Text = dealerC1.Rank; dCard1.Tag = dealerC1.Value;
+            Card dealerC2 = deck.DrawCard(); 
+            dCardSuit2.Text = dealerC2.Suit; dCardRank2.Text = dealerC2.Rank; dCard2.Tag = dealerC2.Value;
             // changes the visibility of the cards
-            pCard1.Visibility = Visibility.Visible; pCard2.Visibility = Visibility.Visible; dCard1.Visibility = Visibility.Visible; dCard2.Visibility = Visibility.Visible;
+            pCard1.Visibility = Visibility.Visible; 
+            pCard2.Visibility = Visibility.Visible; 
+            dCard1.Visibility = Visibility.Visible;
+            dCardSuit2.Visibility = Visibility.Hidden; dCardRank2.Visibility = Visibility.Hidden; dCard2.Visibility = Visibility.Hidden;
             // adds up the two values after the start button is clicked
             int playerV1 = playerC1.Value + playerC2.Value;
-            int dealerV2 = dealerC1.Value + dealerC2.Value;
             // determines whether the player or dealer has a blackjack.
             if (playerV1 == 21)
             {
                 MessageBox.Show("BlackJack! You win!");
-            }
-            else if (dealerV2 == 21)
-            {
-                MessageBox.Show("Dealer BlackJacked! Dealer Wins!");
+                HitButton.IsEnabled = false;
+                StandButton.IsEnabled = false;
+                ResetGame();
             }
             StartButton.Content = "New Game";
+            StartButton.IsEnabled = false;
         }
 
         private void HitButton_Click(object sender, RoutedEventArgs e)
@@ -118,17 +131,24 @@ namespace BlackJackWPF_WIP
             // determines whether a card is hidden and if it is make it visible and after every click makes the next card visible
             if (pCard3.Visibility == Visibility.Hidden)
             {
-                pCardSuit3.Text = playerC.Suit; pCardRank3.Text = playerC.Rank; pCard3.Tag = playerC.Value;
+                pCardSuit3.Text = playerC.Suit; 
+                pCardRank3.Text = playerC.Rank; 
+                pCard3.Tag = playerC.Value;
                 pCard3.Visibility = Visibility.Visible;
+                
             }
             else if (pCard4.Visibility == Visibility.Hidden)
             {
-                pCardSuit4.Text = playerC.Suit; pCardRank4.Text = playerC.Rank; pCard4.Tag = playerC.Value;
+                pCardSuit4.Text = playerC.Suit; 
+                pCardRank4.Text = playerC.Rank; 
+                pCard4.Tag = playerC.Value;
                 pCard4.Visibility = Visibility.Visible;
             }
             else
             {
-                pCardSuit5.Text = playerC.Suit; pCardRank5.Text = playerC.Rank; pCard5.Tag = playerC.Value;
+                pCardSuit5.Text = playerC.Suit; 
+                pCardRank5.Text = playerC.Rank; 
+                pCard5.Tag = playerC.Value;
                 pCard5.Visibility = Visibility.Visible;
             }
 
@@ -136,52 +156,110 @@ namespace BlackJackWPF_WIP
 
         private void StandButton_Click(object sender, RoutedEventArgs e)
         {
-            // Shuffles the next 3 cards
-            deck.Shuffle();
-            Card dealerC = deck.DrawCard();
-            // determines whether a card is hidden and if it is make it visible and after every click makes the next card visible
-            if (dCard3.Visibility == Visibility.Hidden)
-            {
-                dCardSuit3.Text = dealerC.Suit; dCardRank3.Text = dealerC.Rank; dCard3.Tag = dealerC.Value;
-                dCard3.Visibility = Visibility.Visible;
-
-            }
-            else if (dCard4.Visibility == Visibility.Hidden)
-            {
-                dCardSuit4.Text = dealerC.Suit; dCardRank4.Text = dealerC.Rank; dCard4.Tag = dealerC.Value;
-                dCard4.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                dCardSuit5.Text = dealerC.Suit; dCardRank5.Text = dealerC.Rank; dCard5.Tag = dealerC.Value;
-                dCard5.Visibility = Visibility.Visible;
-            }
-
-
             // Adds up all the cards
             int playerVTotal = (int)pCard1.Tag + (int)pCard2.Tag + (int)pCard3.Tag + (int)pCard4.Tag + (int)pCard5.Tag;
             int dealerVTotal = (int)dCard1.Tag + (int)dCard2.Tag + (int)dCard3.Tag + (int)dCard4.Tag + (int)dCard5.Tag;
 
-            // Filler
-            if (playerVTotal > 21 && ProcessAces() > 21)
+            // Shuffles the next 3 cards
+            deck.Shuffle();
+            Card dealerC = deck.DrawCard();
+            // Checks if the players total value goes over 20 and then sees if there are any aces in player hand and changes them to a value of 1
+            if (playerVTotal > 21 && ProcessPlayerAces() > 21)
             {
                 MessageBox.Show("You busted!");
+                ResetGame();
             }
-            else if (playerVTotal < dealerVTotal && dealerVTotal <= 21)
+            // determines whether a card is hidden and whether the value is under 17 and makes it visible
+            else if (dCard2.Visibility == Visibility.Hidden)
             {
-                MessageBox.Show("You lost! Dealer Won!");
-            }
-            else if (dealerVTotal > 21)
-            {
-                MessageBox.Show("Dealer busted! You win!");
-            }
-            else
-            {
-                MessageBox.Show("You win!");
+                dCardSuit2.Visibility = Visibility.Visible; 
+                dCardRank2.Visibility = Visibility.Visible; 
+                dCard2.Visibility = Visibility.Visible;
+
+                int dealerV2 = (int)pCard1.Tag + (int)pCard2.Tag;
+                if (dealerV2 == 21)
+                {
+                    MessageBox.Show("Dealer BlackJacked! Dealer wins!");
+                }
+                if (dealerVTotal <= 17 && ProcessDealerAces() > 21)
+                {
+                    deck.Shuffle();
+                    dCard3.Visibility = Visibility.Visible;
+                    dCardSuit3.Text = dealerC.Suit;
+                    dCardRank3.Text = dealerC.Rank;
+                    dCard3.Tag = dealerC.Value;
+
+                    if (dealerVTotal <= 17 && ProcessDealerAces() > 21)
+                    {
+                        deck.Shuffle();
+                        dCard4.Visibility = Visibility.Visible;
+                        dCardSuit4.Text = dealerC.Suit;
+                        dCardRank4.Text = dealerC.Rank;
+                        dCard4.Tag = dealerC.Value;
+
+                        if (dealerVTotal <= 17 && ProcessDealerAces() > 21)
+                        {
+                            deck.Shuffle();
+                            dCard5.Visibility = Visibility.Visible;
+                            dCardSuit5.Text = dealerC.Suit;
+                            dCardRank5.Text = dealerC.Rank;
+                            dCard5.Tag = dealerC.Value;
+                        }
+                        else if (dealerVTotal == playerVTotal)
+                        {
+                            MessageBox.Show("You tied!");
+                        }
+                        else if (dealerVTotal > 21)
+                        {
+                            MessageBox.Show("Dealer busted! You win!");
+                        }
+                        else if (playerVTotal < dealerVTotal && dealerVTotal <= 21)
+                        {
+                            MessageBox.Show("You lost. Dealer Won!");
+                        }
+
+                    }
+                    else if (dealerVTotal == playerVTotal)
+                    {
+                        MessageBox.Show("You tied!");
+                    }
+                    else if (dealerVTotal > 21)
+                    {
+                        MessageBox.Show("Dealer busted! You win!");
+                    }
+                    else if (playerVTotal < dealerVTotal && dealerVTotal <= 21)
+                    {
+                        MessageBox.Show("You lost. Dealer Won!");
+                    }
+
+                }
+                else if (dealerVTotal == playerVTotal)
+                {
+                    MessageBox.Show("You tied!");
+                }
+                else if (dealerVTotal > 21)
+                {
+                    MessageBox.Show("Dealer busted! You win!");
+                }
+                else if (playerVTotal < dealerVTotal && dealerVTotal <= 21)
+                {
+                    MessageBox.Show("You lost. Dealer Won!");
+                }
+                else
+                {
+                    MessageBox.Show("You win!");
+                }
             }
 
             ResetGame();
+            if (StandButton.IsEnabled == true)
+            {
+                HitButton.IsEnabled = false;
+                StandButton.IsEnabled = false;
+            }
+
         }
+        // resets the game and sets everything to the way it was before the game started. All values are set to zero cards are invisible.
         private void ResetGame()
         {
             // puts all the rectangles in a list same with the textblocks to suits and ranks
@@ -192,7 +270,7 @@ namespace BlackJackWPF_WIP
             };
             List<TextBlock> SuitsAndRanks = new List<TextBlock>()
             {
-                pCardRank1, pCardRank2, pCardRank3, pCardRank4, pCardRank5, pCardSuit1, pCardSuit2, pCardSuit3, pCardSuit4, pCardSuit5, 
+                pCardRank1, pCardRank2, pCardRank3, pCardRank4, pCardRank5, pCardSuit1, pCardSuit2, pCardSuit3, pCardSuit4, pCardSuit5,
                 dCardRank1, dCardRank2, dCardRank3, dCardRank4, dCardRank5, dCardSuit1, dCardSuit2, dCardSuit3, dCardSuit4, dCardSuit5
             };
             // sets all of the values(tag) to 0 and hides it.
@@ -206,13 +284,28 @@ namespace BlackJackWPF_WIP
             {
                 suitAndRank.Text = string.Empty;
             }
+            StartButton.IsEnabled = true;
         }
 
-        // Takes the cards in players hands determines whether they are an Ace and sets it to one.
-        private int ProcessAces()
+        // Takes the cards in players/dealer hands determines whether they are an Ace and sets it to one.
+        private int ProcessPlayerAces()
         {
             int count = 0;
             foreach (Rectangle r in new List<Rectangle>() { pCard1, pCard2, pCard3, pCard4, pCard5 })
+            {
+                if ((int)r.Tag == 11)
+                {
+                    r.Tag = 1;
+                }
+                count += (int)r.Tag;
+            }
+
+            return count;
+        }
+        private int ProcessDealerAces()
+        {
+            int count = 0;
+            foreach (Rectangle r in new List<Rectangle>() { dCard1, dCard2, dCard3, dCard4, dCard5 })
             {
                 if ((int)r.Tag == 11)
                 {
